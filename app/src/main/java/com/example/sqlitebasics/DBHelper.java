@@ -14,8 +14,9 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "+ TABLE_NAME + "(title TEXT, artist TEXT, year INT)");
-        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES (\"Hello\", \"Test\", 2000)");
+        // добавлено поле id в таблицу, т.к. оно требуется для SimpleCursorAdapter
+        db.execSQL("CREATE TABLE "+ TABLE_NAME + "(_id INT, title TEXT, artist TEXT, year INT)");
+        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES (1, \"Hello\", \"Test\", 2000)");
     }
 
     @Override
